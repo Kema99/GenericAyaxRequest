@@ -24,34 +24,34 @@ async function requestAyaxParams(ruta, params) {
     return jsonData;
 }
 
-async function getJsonList(ruta, numQuery) {
-    const respuesta = await requestAyax(ruta, numQuery);
-    return createListObjects(respuesta);
+async function getJsonList(route, numQuery) {
+    const response = await requestAyax(route, numQuery);
+    return createListObjects(response);
 }
 
-async function getJsonSingleResponse(ruta, numQuery) {
-    const respuesta = await requestAyaxParams(ruta, numQuery);
-    return respuesta;
+async function getJsonSingleResponse(route, numQuery) {
+    const response = await requestAyaxParams(route, numQuery);
+    return response;
 }
 
-async function getJsonListByParams(ruta, params) {
-    const respuesta = await requestAyaxParams(ruta, params);
-    return createListObjects(respuesta);
+async function getJsonListByParams(route, params) {
+    const response = await requestAyaxParams(route, params);
+    return createListObjects(response);
 }
 
-async function getJsonSingleResponseByParams(ruta, params) {
-    const respuesta = await requestAyaxParams(ruta, params);
-    return respuesta;
+async function getJsonSingleResponseByParams(route, params) {
+    const response = await requestAyaxParams(route, params);
+    return response;
 }
 
-function createListObjects(respuesta) {
-    let objetos = [];
-        if (respuesta.result !== undefined) {
-            objetos[0] = respuesta.result;
+function createListObjects(response) {
+    let objects = [];
+        if (response.result !== undefined) {
+            objects[0] = response.result;
         } else {
-            respuesta.forEach(x => {
-                objetos[objetos.length] = x;
+            response.forEach(x => {
+                objects[objects.length] = x;
             });
         }
-    return objetos;
+    return objects;
 }
